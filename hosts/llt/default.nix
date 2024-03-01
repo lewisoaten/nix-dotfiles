@@ -16,12 +16,11 @@
     group = "users";
   };
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
   environment.systemPackages = [pkgs.scx];
 
   boot.kernelParams = [
     "amd_pstate=active"
-    "ideapad_laptop.allow_v4_dytc=Y"
     ''acpi_osi="Windows 2020"''
   ];
 
@@ -56,8 +55,8 @@
     # };
 
     kmonad.keyboards = {
-      io = {
-        name = "io";
+      llt = {
+        name = "llt";
         config = builtins.readFile "${self}/system/services/kmonad/main.kbd";
         device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
         defcfg = {

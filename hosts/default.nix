@@ -16,12 +16,12 @@
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    io = nixosSystem {
+    llt = nixosSystem {
       inherit specialArgs;
       modules =
         laptop
         ++ [
-          ./io
+          ./llt
           "${mod}/core/lanzaboote.nix"
 
           "${mod}/programs/gamemode.nix"
@@ -37,7 +37,7 @@
 
           {
             home-manager = {
-              users.mihai.imports = homeImports."mihai@io";
+              users.lewis.imports = homeImports."lewis@llt";
               extraSpecialArgs = specialArgs;
             };
           }
@@ -52,32 +52,5 @@
           inputs.chaotic.nixosModules.default
         ];
     };
-
-    # rog = nixosSystem {
-    #   inherit specialArgs;
-    #   modules =
-    #     laptop
-    #     ++ [
-    #       ./rog
-    #       "${mod}/core/lanzaboote.nix"
-
-    #       "${mod}/programs/gamemode.nix"
-    #       "${mod}/programs/hyprland.nix"
-    #       "${mod}/programs/steam.nix"
-
-    #       "${mod}/services/kmonad"
-    #       {home-manager.users.mihai.imports = homeImports."mihai@rog";}
-    #     ];
-    # };
-
-    # kiiro = nixosSystem {
-    #   inherit specialArgs;
-    #   modules =
-    #     desktop
-    #     ++ [
-    #       ./kiiro
-    #       {home-manager.users.mihai.imports = homeImports.server;}
-    #     ];
-    # };
   };
 }

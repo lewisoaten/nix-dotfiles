@@ -7,6 +7,10 @@
   extraSpecialArgs = {inherit inputs self;};
 
   homeImports = {
+    "lewis@llt" = [
+      ../.
+      ./llt
+    ];
     "mihai@io" = [
       ../.
       ./io
@@ -30,6 +34,11 @@ in {
 
   flake = {
     homeConfigurations = {
+      "lewis_llt" = homeManagerConfiguration {
+        modules = homeImports."lewis@llt";
+        inherit pkgs extraSpecialArgs;
+      };
+
       "mihai_io" = homeManagerConfiguration {
         modules = homeImports."mihai@io";
         inherit pkgs extraSpecialArgs;
