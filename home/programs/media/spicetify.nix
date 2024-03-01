@@ -25,7 +25,7 @@
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       history
-      genre
+      # genre  # commented out for now as https://github.com/Shinyhero36/Spicetify-Genre has vanished
       hidePodcasts
       shuffle
     ];
