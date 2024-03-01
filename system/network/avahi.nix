@@ -2,7 +2,8 @@
   # network discovery, mDNS
   services.avahi = {
     enable = true;
-    nssmdns4 = true;
+    # Only available on unstable
+    # nssmdns4 = true;
     publish = {
       enable = true;
       domain = true;
