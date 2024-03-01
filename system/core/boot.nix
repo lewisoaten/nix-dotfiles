@@ -12,7 +12,8 @@
     };
 
     # use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    #Commented out as also defined in llt hosts
+    #kernelPackages = pkgs.linuxPackages_latest;
 
     consoleLogLevel = 3;
     kernelParams = [
